@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="COMPLETE ARM IRoC NO LINEAR">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.540316504174557 0.125118747659995 0.00175400754014409"
+        rpy="0 0 0" />
+      <mass
+        value="4.22833702344448" />
+      <inertia
+        ixx="0.0428586309718106"
+        ixy="4.00845675937414E-06"
+        ixz="7.0982787106176E-05"
+        iyy="0.067016126661026"
+        iyz="3.3266739868286E-06"
+        izz="0.0359679754980897" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="turntable_Link">
+    <inertial>
+      <origin
+        xyz="-0.00363568456293614 -0.00780384010381663 0.00718507405198399"
+        rpy="0 0 0" />
+      <mass
+        value="0.139828349816194" />
+      <inertia
+        ixx="0.000104289475144465"
+        ixy="-7.8342819771766E-06"
+        ixz="-2.93077216858566E-06"
+        iyy="0.000305749387009384"
+        iyz="-5.00676325092157E-06"
+        izz="0.000317260016243253" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://meshes/turntable_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://meshes/turntable_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="base_tt"
+    type="revolute">
+    <origin
+      xyz="-0.749464643791916 -0.0131230934569649 0.231297393628552"
+      rpy="1.92877405892494 1.5707963267949 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="turntable_Link" />
+    <axis
+      xyz="1 0 0" />
+  <limit lower="2" 
+      upper="3"
+      effort="2"
+      velocity="2"/>
+  </joint>
+  <link
+    name="lower_Link">
+    <inertial>
+      <origin
+        xyz="0.212593243260051 -0.00827888582611103 0.0285094427693865"
+        rpy="0 0 0" />
+      <mass
+        value="1.06463433344841" />
+      <inertia
+        ixx="0.00108051441843446"
+        ixy="-0.000135814941710889"
+        ixz="-1.79191920138065E-17"
+        iyy="0.0214017852964219"
+        iyz="-1.94586684824229E-19"
+        izz="0.0211343756885307" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://meshes/lower_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://meshes/lower_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lower_joint"
+    type="revolute">
+    <origin
+      xyz="-0.10969 -0.043134 0.024443"
+      rpy="2.8249 -0.16972 2.6657" />
+    <parent
+      link="turntable_Link" />
+    <child
+      link="lower_Link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.4"
+      upper="0.4"
+      effort="2"
+      velocity="2" />
+  </joint>
+  <link
+    name="upper_Link">
+    <inertial>
+      <origin
+        xyz="0.218603558555292 0.0032923652534278 -0.02"
+        rpy="0 0 0" />
+      <mass
+        value="0.562543211179253" />
+      <inertia
+        ixx="0.00037961986542836"
+        ixy="-3.0035509078501E-05"
+        ixz="-2.02093424689258E-19"
+        iyy="0.0114061655189785"
+        iyz="-3.87059573039513E-20"
+        izz="0.0114521054283329" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://meshes/upper_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://meshes/upper_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="upper_joint"
+    type="revolute">
+    <origin
+      xyz="0.44 0 0.0085"
+      rpy="3.1416 0 1.917" />
+    <parent
+      link="lower_Link" />
+    <child
+      link="upper_Link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.4"
+      upper="0.2"
+      effort="2"
+      velocity="2" />
+  </joint>
+  <link
+    name="endeffector_Link">
+    <inertial>
+      <origin
+        xyz="0.0309962020512521 -0.0855843030196582 0.118791367896996"
+        rpy="0 0 0" />
+      <mass
+        value="1.7145056514755" />
+      <inertia
+        ixx="0.00178147561977561"
+        ixy="-1.28233953067685E-05"
+        ixz="-3.31229062352253E-05"
+        iyy="0.00243654497167833"
+        iyz="-0.000124042347029096"
+        izz="0.00168650832143321" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://meshes/endeffector_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://meshes/endeffector_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="end_link"
+    type="fixed">
+    <origin
+      xyz="0.72214 0.019745 0.068561"
+      rpy="-2.883 0.71988 1.4453" />
+    <parent
+      link="upper_Link" />
+    <child
+      link="endeffector_Link" />
+
+  </joint>
+  <gazebo>
+  <plugin filename="libgz-sim-joint-position-controller-system.so"
+          name="gz::sim::systems::JointPositionController">
+  <joint_name>upper_joint</joint_name>
+  <joint_index>0</joint_index>
+  </plugin>
+  <plugin
+ filename="gz-sim-joint-controller-system"
+ name="gz::sim::systems::JointController">
+ <joint_name>lower_joint</joint_name>
+ <use_force_commands>true</use_force_commands>
+ <p_gain>0.2</p_gain>
+ <i_gain>0.01</i_gain>
+ </plugin>
+ <plugin filename="gz-sim-joint-controller-system"
+name="gz::sim::systems::JointController">
+<joint_name>base_tt</joint_name>
+<initial_velocity>0</initial_velocity>
+</plugin>
+  </gazebo>
+</robot>
