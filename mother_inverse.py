@@ -118,7 +118,10 @@ def read_from_serial(port):
                                 decoded_msg.contents.status.arm_joint_status[2] 
                             )
                         )
-                        print(f'[CMD] | Arm Joint States: {inv(decoded_msg.contents.status.arm_joint_status,[-1.3, 0, 0.3])}')
+                        tr=np.array([[1,0,0,0.7495],[0,1,0,0.0131],[0,0,1,-0.1],[0,0,0,1]])
+                        pos=np.array([-1.3,0,0.3,1])
+                        npos=list(np.dot(tr*pos))[:3]
+                        print(f'[CMD] | Arm Joint States: {inv(decoded_msg.contents.status.arm_joint_status,npos)}')
                     if decoded_msg.contents.type == 4:
                         print(f"[ERROR]: {decoded_msg.contents.info.decode()}")
                     if decoded_msg.contents.type == 5:
